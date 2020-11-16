@@ -1,12 +1,11 @@
 #include <iostream>
-#include<string.h>
+#include <string>
 #include "StackNode.cpp"
 using namespace std;
 
 class Stack{
   StackNode *last;
   public:
-  //created
   Stack(){
     last=NULL;
   }
@@ -16,7 +15,7 @@ class Stack{
   }
 
   void push(string word){
-    StackNode* new_stack_node= new StackNode(word); 
+    StackNode *new_stack_node= new StackNode(word); 
     if (!isEmpty()){
       new_stack_node->set_previo(last);
     }
@@ -39,6 +38,13 @@ class Stack{
       aux= aux->get_previo();
     }
     return cont;
+  }
+  void show (){
+    StackNode* aux= last;
+    while (aux!=NULL){
+      cout<<aux->get_word()<<endl;
+      aux=aux->get_previo();
+    }
   }
 
   ~Stack(){
